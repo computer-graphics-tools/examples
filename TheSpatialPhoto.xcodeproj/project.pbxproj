@@ -1,0 +1,583 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 60;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D00F9AC12C4AD80F00E5DD8D /* SceneCollisionEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00F9AC02C4AD80F00E5DD8D /* SceneCollisionEncoder.swift */; };
+		D00F9AC32C4AD81500E5DD8D /* SceneCollision.metal in Sources */ = {isa = PBXBuildFile; fileRef = D00F9AC22C4AD81500E5DD8D /* SceneCollision.metal */; };
+		D0326DFC2C4AE73A008879DD /* ParticleMeshBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0326DFB2C4AE73A008879DD /* ParticleMeshBuilder.swift */; };
+		D0326DFE2C4AE789008879DD /* ParticleMeshUpdater.metal in Sources */ = {isa = PBXBuildFile; fileRef = D0326DFD2C4AE789008879DD /* ParticleMeshUpdater.metal */; };
+		D03323272C4B04170051640A /* Simulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03323262C4B04170051640A /* Simulation.swift */; };
+		D03323292C4B04250051640A /* Simulation.metal in Sources */ = {isa = PBXBuildFile; fileRef = D03323282C4B04250051640A /* Simulation.metal */; };
+		D046870B2C62C92800BB6557 /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = D07E26982C4AD09A00A3770F /* RealityKitContent */; };
+		D046870C2C62C92800BB6557 /* MetalTools in Frameworks */ = {isa = PBXBuildFile; productRef = D00F9AA12C4AD51600E5DD8D /* MetalTools */; };
+		D046870D2C62C92800BB6557 /* SimulationTools in Frameworks */ = {isa = PBXBuildFile; productRef = D033232B2C4B04540051640A /* SimulationTools */; };
+		D046870E2C62C92800BB6557 /* SimulationTools in Frameworks */ = {isa = PBXBuildFile; productRef = D03323312C4B05DE0051640A /* SimulationTools */; };
+		D046870F2C62C92800BB6557 /* SimulationTools in Frameworks */ = {isa = PBXBuildFile; productRef = D0AB7A302C4C9B5F00A02C5A /* SimulationTools */; };
+		D04687102C62C92800BB6557 /* SimulationTools in Frameworks */ = {isa = PBXBuildFile; productRef = D0795EFE2C4EF061003C3EB3 /* SimulationTools */; };
+		D04687112C62C92800BB6557 /* SimulationTools in Frameworks */ = {isa = PBXBuildFile; productRef = D027028E2C53042F0024F8D3 /* SimulationTools */; };
+		D04687122C62C92800BB6557 /* SimulationTools in Frameworks */ = {isa = PBXBuildFile; productRef = D07A0D842C54256B00FEA45C /* SimulationTools */; };
+		D04687132C62C92800BB6557 /* MetalTools in Frameworks */ = {isa = PBXBuildFile; productRef = 54F137822C5AED8300302974 /* MetalTools */; };
+		D05E23432C62C8EF0065F0CF /* SimulationTools in Frameworks */ = {isa = PBXBuildFile; productRef = D05E23422C62C8EF0065F0CF /* SimulationTools */; };
+		D07E269B2C4AD09A00A3770F /* TheSpatialPhotoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07E269A2C4AD09A00A3770F /* TheSpatialPhotoApp.swift */; };
+		D07E269D2C4AD09A00A3770F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07E269C2C4AD09A00A3770F /* ContentView.swift */; };
+		D07E269F2C4AD09A00A3770F /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07E269E2C4AD09A00A3770F /* AppModel.swift */; };
+		D07E26A12C4AD09A00A3770F /* ToggleImmersiveSpaceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07E26A02C4AD09A00A3770F /* ToggleImmersiveSpaceButton.swift */; };
+		D07E26A32C4AD09A00A3770F /* ImmersiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07E26A22C4AD09A00A3770F /* ImmersiveView.swift */; };
+		D07E26A52C4AD09B00A3770F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D07E26A42C4AD09B00A3770F /* Assets.xcassets */; };
+		D07E26A82C4AD09B00A3770F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D07E26A72C4AD09B00A3770F /* Preview Assets.xcassets */; };
+		D07E26B72C4AD1C200A3770F /* SceneMeshProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07E26B62C4AD1C200A3770F /* SceneMeshProvider.swift */; };
+		D07E26BA2C4AD1CB00A3770F /* SceneMeshAssembler.metal in Sources */ = {isa = PBXBuildFile; fileRef = D07E26B82C4AD1CB00A3770F /* SceneMeshAssembler.metal */; };
+		D07E26BB2C4AD1CB00A3770F /* SceneMeshAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07E26B92C4AD1CB00A3770F /* SceneMeshAssembler.swift */; };
+		D0831D862C4B749C0047DABA /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0831D852C4B74980047DABA /* ViewModel.swift */; };
+		D0E84AB62C6164BB00A3B7B1 /* SimulationSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E84AB52C6164BB00A3B7B1 /* SimulationSystem.swift */; };
+		D0E84AB82C6164D900A3B7B1 /* ParticlesUpdateSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E84AB72C6164D900A3B7B1 /* ParticlesUpdateSystem.swift */; };
+		D0E84ABA2C6164E200A3B7B1 /* SceneUpdateSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E84AB92C6164E200A3B7B1 /* SceneUpdateSystem.swift */; };
+		D0E84ABC2C62764E00A3B7B1 /* SettingsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E84ABB2C62764E00A3B7B1 /* SettingsComponent.swift */; };
+		D0E84ABE2C6285F000A3B7B1 /* SceneMeshBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E84ABD2C6285E900A3B7B1 /* SceneMeshBuilder.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D00F9AC02C4AD80F00E5DD8D /* SceneCollisionEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCollisionEncoder.swift; sourceTree = "<group>"; };
+		D00F9AC22C4AD81500E5DD8D /* SceneCollision.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = SceneCollision.metal; sourceTree = "<group>"; };
+		D00F9AC82C4AE15100E5DD8D /* Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		D0326DFB2C4AE73A008879DD /* ParticleMeshBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticleMeshBuilder.swift; sourceTree = "<group>"; };
+		D0326DFD2C4AE789008879DD /* ParticleMeshUpdater.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = ParticleMeshUpdater.metal; sourceTree = "<group>"; };
+		D03323262C4B04170051640A /* Simulation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Simulation.swift; sourceTree = "<group>"; };
+		D03323282C4B04250051640A /* Simulation.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Simulation.metal; sourceTree = "<group>"; };
+		D07E26932C4AD09900A3770F /* TheSpatialPhoto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheSpatialPhoto.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D07E26972C4AD09A00A3770F /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
+		D07E269A2C4AD09A00A3770F /* TheSpatialPhotoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheSpatialPhotoApp.swift; sourceTree = "<group>"; };
+		D07E269C2C4AD09A00A3770F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D07E269E2C4AD09A00A3770F /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		D07E26A02C4AD09A00A3770F /* ToggleImmersiveSpaceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleImmersiveSpaceButton.swift; sourceTree = "<group>"; };
+		D07E26A22C4AD09A00A3770F /* ImmersiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmersiveView.swift; sourceTree = "<group>"; };
+		D07E26A42C4AD09B00A3770F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D07E26A72C4AD09B00A3770F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D07E26A92C4AD09B00A3770F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D07E26B62C4AD1C200A3770F /* SceneMeshProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneMeshProvider.swift; sourceTree = "<group>"; };
+		D07E26B82C4AD1CB00A3770F /* SceneMeshAssembler.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = SceneMeshAssembler.metal; sourceTree = "<group>"; };
+		D07E26B92C4AD1CB00A3770F /* SceneMeshAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneMeshAssembler.swift; sourceTree = "<group>"; };
+		D0831D852C4B74980047DABA /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		D0E84AB52C6164BB00A3B7B1 /* SimulationSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulationSystem.swift; sourceTree = "<group>"; };
+		D0E84AB72C6164D900A3B7B1 /* ParticlesUpdateSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticlesUpdateSystem.swift; sourceTree = "<group>"; };
+		D0E84AB92C6164E200A3B7B1 /* SceneUpdateSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneUpdateSystem.swift; sourceTree = "<group>"; };
+		D0E84ABB2C62764E00A3B7B1 /* SettingsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsComponent.swift; sourceTree = "<group>"; };
+		D0E84ABD2C6285E900A3B7B1 /* SceneMeshBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneMeshBuilder.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D07E26902C4AD09900A3770F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D04687132C62C92800BB6557 /* MetalTools in Frameworks */,
+				D04687122C62C92800BB6557 /* SimulationTools in Frameworks */,
+				D04687112C62C92800BB6557 /* SimulationTools in Frameworks */,
+				D04687102C62C92800BB6557 /* SimulationTools in Frameworks */,
+				D046870F2C62C92800BB6557 /* SimulationTools in Frameworks */,
+				D046870E2C62C92800BB6557 /* SimulationTools in Frameworks */,
+				D046870D2C62C92800BB6557 /* SimulationTools in Frameworks */,
+				D046870C2C62C92800BB6557 /* MetalTools in Frameworks */,
+				D046870B2C62C92800BB6557 /* RealityKitContent in Frameworks */,
+				D05E23432C62C8EF0065F0CF /* SimulationTools in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		54F137842C5AF08500302974 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D07E268A2C4AD09900A3770F = {
+			isa = PBXGroup;
+			children = (
+				D07E26952C4AD09900A3770F /* TheSpatialPhoto */,
+				D07E26962C4AD09A00A3770F /* Packages */,
+				D07E26942C4AD09900A3770F /* Products */,
+				54F137842C5AF08500302974 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		D07E26942C4AD09900A3770F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D07E26932C4AD09900A3770F /* TheSpatialPhoto.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D07E26952C4AD09900A3770F /* TheSpatialPhoto */ = {
+			isa = PBXGroup;
+			children = (
+				D0E84AB42C6164A300A3B7B1 /* ECS */,
+				D0A7A6002C50254500F1F86E /* UI */,
+				D0A7A5FF2C5024CD00F1F86E /* Scene */,
+				D0A7A5FE2C5023C300F1F86E /* Particles */,
+				D0A7A5FD2C5023B300F1F86E /* Simulation */,
+				D07E269A2C4AD09A00A3770F /* TheSpatialPhotoApp.swift */,
+				D00F9AC82C4AE15100E5DD8D /* Utils.h */,
+				D07E269E2C4AD09A00A3770F /* AppModel.swift */,
+				D07E26A42C4AD09B00A3770F /* Assets.xcassets */,
+				D07E26A92C4AD09B00A3770F /* Info.plist */,
+				D07E26A62C4AD09B00A3770F /* Preview Content */,
+			);
+			path = TheSpatialPhoto;
+			sourceTree = "<group>";
+		};
+		D07E26962C4AD09A00A3770F /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				D07E26972C4AD09A00A3770F /* RealityKitContent */,
+			);
+			path = Packages;
+			sourceTree = "<group>";
+		};
+		D07E26A62C4AD09B00A3770F /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				D07E26A72C4AD09B00A3770F /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D0A7A5FD2C5023B300F1F86E /* Simulation */ = {
+			isa = PBXGroup;
+			children = (
+				D03323262C4B04170051640A /* Simulation.swift */,
+				D03323282C4B04250051640A /* Simulation.metal */,
+			);
+			path = Simulation;
+			sourceTree = "<group>";
+		};
+		D0A7A5FE2C5023C300F1F86E /* Particles */ = {
+			isa = PBXGroup;
+			children = (
+				D0326DFD2C4AE789008879DD /* ParticleMeshUpdater.metal */,
+				D0326DFB2C4AE73A008879DD /* ParticleMeshBuilder.swift */,
+			);
+			path = Particles;
+			sourceTree = "<group>";
+		};
+		D0A7A5FF2C5024CD00F1F86E /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				D00F9AC22C4AD81500E5DD8D /* SceneCollision.metal */,
+				D00F9AC02C4AD80F00E5DD8D /* SceneCollisionEncoder.swift */,
+				D07E26B82C4AD1CB00A3770F /* SceneMeshAssembler.metal */,
+				D07E26B92C4AD1CB00A3770F /* SceneMeshAssembler.swift */,
+				D0E84ABD2C6285E900A3B7B1 /* SceneMeshBuilder.swift */,
+				D07E26B62C4AD1C200A3770F /* SceneMeshProvider.swift */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		D0A7A6002C50254500F1F86E /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				D07E26A02C4AD09A00A3770F /* ToggleImmersiveSpaceButton.swift */,
+				D07E26A22C4AD09A00A3770F /* ImmersiveView.swift */,
+				D0831D852C4B74980047DABA /* ViewModel.swift */,
+				D07E269C2C4AD09A00A3770F /* ContentView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		D0E84AB42C6164A300A3B7B1 /* ECS */ = {
+			isa = PBXGroup;
+			children = (
+				D0E84ABB2C62764E00A3B7B1 /* SettingsComponent.swift */,
+				D0E84AB92C6164E200A3B7B1 /* SceneUpdateSystem.swift */,
+				D0E84AB72C6164D900A3B7B1 /* ParticlesUpdateSystem.swift */,
+				D0E84AB52C6164BB00A3B7B1 /* SimulationSystem.swift */,
+			);
+			path = ECS;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D07E26922C4AD09900A3770F /* TheSpatialPhoto */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D07E26AC2C4AD09B00A3770F /* Build configuration list for PBXNativeTarget "TheSpatialPhoto" */;
+			buildPhases = (
+				D07E268F2C4AD09900A3770F /* Sources */,
+				D07E26902C4AD09900A3770F /* Frameworks */,
+				D07E26912C4AD09900A3770F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TheSpatialPhoto;
+			packageProductDependencies = (
+				D07E26982C4AD09A00A3770F /* RealityKitContent */,
+				D00F9AA12C4AD51600E5DD8D /* MetalTools */,
+				D033232B2C4B04540051640A /* SimulationTools */,
+				D03323312C4B05DE0051640A /* SimulationTools */,
+				D0AB7A302C4C9B5F00A02C5A /* SimulationTools */,
+				D0795EFE2C4EF061003C3EB3 /* SimulationTools */,
+				D027028E2C53042F0024F8D3 /* SimulationTools */,
+				D07A0D842C54256B00FEA45C /* SimulationTools */,
+				54F137822C5AED8300302974 /* MetalTools */,
+				D05E23422C62C8EF0065F0CF /* SimulationTools */,
+			);
+			productName = TheSpatialPhoto;
+			productReference = D07E26932C4AD09900A3770F /* TheSpatialPhoto.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D07E268B2C4AD09900A3770F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					D07E26922C4AD09900A3770F = {
+						CreatedOnToolsVersion = 16.0;
+					};
+				};
+			};
+			buildConfigurationList = D07E268E2C4AD09900A3770F /* Build configuration list for PBXProject "TheSpatialPhoto" */;
+			compatibilityVersion = "Xcode 15.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D07E268A2C4AD09900A3770F;
+			packageReferences = (
+				54F137812C5AED8300302974 /* XCRemoteSwiftPackageReference "metal-tools" */,
+				D05E23412C62C8EF0065F0CF /* XCLocalSwiftPackageReference "../simulation-tools" */,
+			);
+			productRefGroup = D07E26942C4AD09900A3770F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D07E26922C4AD09900A3770F /* TheSpatialPhoto */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D07E26912C4AD09900A3770F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D07E26A82C4AD09B00A3770F /* Preview Assets.xcassets in Resources */,
+				D07E26A52C4AD09B00A3770F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D07E268F2C4AD09900A3770F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D07E26A12C4AD09A00A3770F /* ToggleImmersiveSpaceButton.swift in Sources */,
+				D0E84ABE2C6285F000A3B7B1 /* SceneMeshBuilder.swift in Sources */,
+				D00F9AC32C4AD81500E5DD8D /* SceneCollision.metal in Sources */,
+				D07E269D2C4AD09A00A3770F /* ContentView.swift in Sources */,
+				D0326DFE2C4AE789008879DD /* ParticleMeshUpdater.metal in Sources */,
+				D0E84ABC2C62764E00A3B7B1 /* SettingsComponent.swift in Sources */,
+				D0E84AB62C6164BB00A3B7B1 /* SimulationSystem.swift in Sources */,
+				D03323292C4B04250051640A /* Simulation.metal in Sources */,
+				D07E26BA2C4AD1CB00A3770F /* SceneMeshAssembler.metal in Sources */,
+				D0E84ABA2C6164E200A3B7B1 /* SceneUpdateSystem.swift in Sources */,
+				D03323272C4B04170051640A /* Simulation.swift in Sources */,
+				D0326DFC2C4AE73A008879DD /* ParticleMeshBuilder.swift in Sources */,
+				D0831D862C4B749C0047DABA /* ViewModel.swift in Sources */,
+				D07E26BB2C4AD1CB00A3770F /* SceneMeshAssembler.swift in Sources */,
+				D07E26B72C4AD1C200A3770F /* SceneMeshProvider.swift in Sources */,
+				D07E26A32C4AD09A00A3770F /* ImmersiveView.swift in Sources */,
+				D07E269F2C4AD09A00A3770F /* AppModel.swift in Sources */,
+				D07E269B2C4AD09A00A3770F /* TheSpatialPhotoApp.swift in Sources */,
+				D0E84AB82C6164D900A3B7B1 /* ParticlesUpdateSystem.swift in Sources */,
+				D00F9AC12C4AD80F00E5DD8D /* SceneCollisionEncoder.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		D07E26AA2C4AD09B00A3770F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = xros;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				XROS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		D07E26AB2C4AD09B00A3770F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = xros;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+				XROS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		D07E26AD2C4AD09B00A3770F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"TheSpatialPhoto/Preview Content\"";
+				DEVELOPMENT_TEAM = 7LT752HSAG;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lakiinbor.TheSpatialPhoto;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SUPPORTED_PLATFORMS = "macosx xros xrsimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 7;
+				XROS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		D07E26AE2C4AD09B00A3770F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"TheSpatialPhoto/Preview Content\"";
+				DEVELOPMENT_TEAM = 7LT752HSAG;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lakiinbor.TheSpatialPhoto;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SUPPORTED_PLATFORMS = "macosx xros xrsimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 7;
+				XROS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D07E268E2C4AD09900A3770F /* Build configuration list for PBXProject "TheSpatialPhoto" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D07E26AA2C4AD09B00A3770F /* Debug */,
+				D07E26AB2C4AD09B00A3770F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D07E26AC2C4AD09B00A3770F /* Build configuration list for PBXNativeTarget "TheSpatialPhoto" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D07E26AD2C4AD09B00A3770F /* Debug */,
+				D07E26AE2C4AD09B00A3770F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		D05E23412C62C8EF0065F0CF /* XCLocalSwiftPackageReference "../simulation-tools" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = "../simulation-tools";
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		54F137812C5AED8300302974 /* XCRemoteSwiftPackageReference "metal-tools" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/computer-graphics-tools/metal-tools";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.3.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		54F137822C5AED8300302974 /* MetalTools */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 54F137812C5AED8300302974 /* XCRemoteSwiftPackageReference "metal-tools" */;
+			productName = MetalTools;
+		};
+		D00F9AA12C4AD51600E5DD8D /* MetalTools */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MetalTools;
+		};
+		D027028E2C53042F0024F8D3 /* SimulationTools */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SimulationTools;
+		};
+		D033232B2C4B04540051640A /* SimulationTools */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SimulationTools;
+		};
+		D03323312C4B05DE0051640A /* SimulationTools */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SimulationTools;
+		};
+		D05E23422C62C8EF0065F0CF /* SimulationTools */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SimulationTools;
+		};
+		D0795EFE2C4EF061003C3EB3 /* SimulationTools */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SimulationTools;
+		};
+		D07A0D842C54256B00FEA45C /* SimulationTools */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SimulationTools;
+		};
+		D07E26982C4AD09A00A3770F /* RealityKitContent */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RealityKitContent;
+		};
+		D0AB7A302C4C9B5F00A02C5A /* SimulationTools */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SimulationTools;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = D07E268B2C4AD09900A3770F /* Project object */;
+}

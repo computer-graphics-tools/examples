@@ -1,0 +1,624 @@
+#usda 1.0
+(
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Root" (
+    prepend apiSchemas = ["MaterialBindingAPI"]
+)
+{
+    reorder nameChildren = ["BillboardMaterial", "SpecialOcclusionMaterial", "Plane"]
+    rel material:binding = </Root/SpecialOcclusionMaterial> (
+        bindMaterialAs = "weakerThanDescendants"
+    )
+
+    def Material "BillboardMaterial"
+    {
+        reorder nameChildren = ["PreviewSurface", "Image", "GeometryModifier", "Position", "Multiply_2", "ViewFrame", "ParticleSpacePosition", "Add", "Multiply", "Multiply_1", "Separate2"]
+        float inputs:cellSize = 0 (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (2149.7761, 375.67697)
+                    int stackingOrderInSubgraph = 5472
+                }
+            }
+        )
+        asset inputs:texture (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (1099.3767, -577.86914)
+                    float2 sizeInSubgraph = (115.5, 53)
+                    int stackingOrderInSubgraph = 5451
+                }
+            }
+        )
+        float inputs:time = 0 (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (439.31454, 525.38214)
+                    float2 sizeInSubgraph = (98, 53)
+                    int stackingOrderInSubgraph = 5416
+                }
+            }
+        )
+        token outputs:mtlx:surface.connect = </Root/BillboardMaterial/PBRSurface.outputs:out>
+        token outputs:realitykit:vertex.connect = </Root/BillboardMaterial/GeometryModifier_1.outputs:out>
+        float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (3395.3894, 294.2436)
+        float2 ui:nodegraph:realitykit:subgraphOutputs:size = (181.5, 99)
+        int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 5410
+
+        def Shader "Multiply_2" (
+            references = None
+        )
+        {
+            uniform token info:id = "ND_multiply_vector3FA"
+            float3 inputs:in1.connect = </Root/BillboardMaterial/Add.outputs:out>
+            float inputs:in2 = 0.025
+            float inputs:in2.connect = </Root/BillboardMaterial/Multiply_5.outputs:out>
+            float3 outputs:out
+            float2 ui:nodegraph:node:pos = (2468.3135, 371.76535)
+            float2 ui:nodegraph:node:size = (60, 36)
+            int ui:nodegraph:node:stackingOrder = 5469
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["outputs:out"]
+        }
+
+        def NodeGraph "ParticleSpacePosition" (
+            references = None
+        )
+        {
+            float2 outputs:Position (
+                customData = {
+                    dictionary realitykit = {
+                        int stackingOrderInSubgraph = 289
+                    }
+                }
+            )
+            float2 outputs:Position.connect = </Root/BillboardMaterial/ParticleSpacePosition/Multiply.outputs:out>
+            float2 ui:nodegraph:node:pos = (-13.930693, 871.25244)
+            float2 ui:nodegraph:node:size = (187.5, 81)
+            int ui:nodegraph:node:stackingOrder = 4890
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["outputs:Position", "outputs:Position", "outputs:Position"]
+            float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (890.64594, 77.62481)
+            float2 ui:nodegraph:realitykit:subgraphOutputs:size = (191.0062, 81)
+            int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 588
+
+            def Shader "PositionInParticle" (
+                references = None
+            )
+            {
+                uniform token info:id = "ND_texcoord_vector2"
+                int inputs:index = 1
+                float2 outputs:out
+                float2 ui:nodegraph:node:pos = (106.57422, -31.613281)
+                float2 ui:nodegraph:node:size = (193.5, 53)
+                int ui:nodegraph:node:stackingOrder = 594
+            }
+
+            def Shader "Subtract" (
+                references = None
+            )
+            {
+                uniform token info:id = "ND_subtract_vector2"
+                float2 inputs:in1.connect = </Root/BillboardMaterial/ParticleSpacePosition/PositionInParticle.outputs:out>
+                float2 inputs:in2 = (0.5, 0.5)
+                float2 outputs:out
+                float2 ui:nodegraph:node:pos = (325.9453, -23.558594)
+                float2 ui:nodegraph:node:size = (61.5, 36)
+                int ui:nodegraph:node:stackingOrder = 590
+            }
+
+            def Shader "Multiply"
+            {
+                uniform token info:id = "ND_multiply_vector2FA"
+                prepend float2 inputs:in1.connect = </Root/BillboardMaterial/ParticleSpacePosition/Subtract.outputs:out>
+                float inputs:in2 = 1
+                float2 outputs:out
+                float2 ui:nodegraph:node:pos = (523.59125, 155.27226)
+                int ui:nodegraph:node:stackingOrder = 587
+            }
+        }
+
+        def Shader "Multiply"
+        {
+            uniform token info:id = "ND_multiply_vector3FA"
+            float3 inputs:in1.connect = </Root/BillboardMaterial/ViewFrame.outputs:Right>
+            float inputs:in2.connect = </Root/BillboardMaterial/Separate2.outputs:outx>
+            float3 outputs:out
+            float2 ui:nodegraph:node:pos = (2235.056, 939.4348)
+            float2 ui:nodegraph:node:size = (60, 36)
+            int ui:nodegraph:node:stackingOrder = 5355
+        }
+
+        def Shader "Multiply_1" (
+            references = None
+        )
+        {
+            uniform token info:id = "ND_multiply_vector3FA"
+            float3 inputs:in1.connect = </Root/BillboardMaterial/ViewFrame.outputs:Up>
+            float inputs:in2.connect = </Root/BillboardMaterial/Separate2.outputs:outy>
+            float3 outputs:out
+            float2 ui:nodegraph:node:pos = (2206.4163, 1010.0793)
+            float2 ui:nodegraph:node:size = (60, 36)
+            int ui:nodegraph:node:stackingOrder = 5357
+        }
+
+        def Shader "Separate2" (
+            references = None
+        )
+        {
+            uniform token info:id = "ND_separate2_vector2"
+            float2 inputs:in.connect = </Root/BillboardMaterial/ParticleSpacePosition.outputs:Position>
+            float outputs:outx
+            float outputs:outy
+            float2 ui:nodegraph:node:pos = (1129.5726, 1014.8174)
+            float2 ui:nodegraph:node:size = (115, 127)
+            int ui:nodegraph:node:stackingOrder = 5371
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = []
+        }
+
+        def NodeGraph "ViewFrame" (
+            references = None
+        )
+        {
+            float3 inputs:viewDirection = (0, 0, 1) (
+                customData = {
+                    dictionary realitykit = {
+                        float2 positionInSubgraph = (-120.11611, 143.32283)
+                        int stackingOrderInSubgraph = 702
+                    }
+                }
+            )
+            float3 inputs:viewDirection.connect = </Root/BillboardMaterial/Mix_4.outputs:out>
+            float3 outputs:Right (
+                customData = {
+                    dictionary realitykit = {
+                        int stackingOrderInSubgraph = 290
+                    }
+                }
+            )
+            float3 outputs:Right.connect = </Root/BillboardMaterial/ViewFrame/Right.outputs:out>
+            float3 outputs:Up (
+                customData = {
+                    dictionary realitykit = {
+                        int stackingOrderInSubgraph = 290
+                    }
+                }
+            )
+            float3 outputs:Up.connect = </Root/BillboardMaterial/ViewFrame/Up.outputs:out>
+            float2 ui:nodegraph:node:pos = (2018.7109, 1256.9489)
+            float2 ui:nodegraph:node:size = (121, 99)
+            int ui:nodegraph:node:stackingOrder = 5311
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["outputs:Right"]
+            float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (1136.9006, -5.6961317)
+            float2 ui:nodegraph:realitykit:subgraphOutputs:size = (179.01637, 99)
+            int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 661
+
+            def Shader "Right" (
+                references = None
+            )
+            {
+                uniform token info:id = "ND_normalize_vector3"
+                float3 inputs:in.connect = </Root/BillboardMaterial/ViewFrame/Right_Unnormalized.outputs:out>
+                float3 outputs:out
+                float2 ui:nodegraph:node:pos = (507.14062, 16.460938)
+                float2 ui:nodegraph:node:size = (132.5, 53)
+                int ui:nodegraph:node:stackingOrder = 511
+            }
+
+            def Shader "Right_Unnormalized" (
+                references = None
+            )
+            {
+                uniform token info:id = "ND_crossproduct_vector3"
+                float3 inputs:in1.connect = </Root/BillboardMaterial/ViewFrame/Dot_1.outputs:out>
+                float3 inputs:in2 = (0, 1, 0)
+                float3 outputs:out
+                float2 ui:nodegraph:node:pos = (285.48438, 16.785156)
+                float2 ui:nodegraph:node:size = (209.5, 53)
+                int ui:nodegraph:node:stackingOrder = 661
+            }
+
+            def Shader "Up_Unnormalized" (
+                references = None
+            )
+            {
+                uniform token info:id = "ND_crossproduct_vector3"
+                float3 inputs:in1.connect = </Root/BillboardMaterial/ViewFrame.inputs:viewDirection>
+                float3 inputs:in2.connect = </Root/BillboardMaterial/ViewFrame/Dot.outputs:out>
+                float3 outputs:out
+                float2 ui:nodegraph:node:pos = (628.29297, 299.8164)
+                float2 ui:nodegraph:node:size = (194, 53)
+                int ui:nodegraph:node:stackingOrder = 698
+            }
+
+            def Shader "Up" (
+                references = None
+            )
+            {
+                uniform token info:id = "ND_normalize_vector3"
+                float3 inputs:in.connect = </Root/BillboardMaterial/ViewFrame/Up_Unnormalized.outputs:out>
+                float3 outputs:out
+                float2 ui:nodegraph:node:pos = (870.33984, 308.1875)
+                float2 ui:nodegraph:node:size = (132.5, 53)
+                int ui:nodegraph:node:stackingOrder = 698
+            }
+
+            def Shader "Dot" (
+                references = None
+            )
+            {
+                uniform token info:id = "ND_dot_vector3"
+                float3 inputs:in.connect = </Root/BillboardMaterial/ViewFrame/Right_Unnormalized.outputs:out>
+                float3 outputs:out
+                float2 ui:nodegraph:node:pos = (389.49548, 193.04463)
+                float2 ui:nodegraph:node:size = (44, 18)
+                int ui:nodegraph:node:stackingOrder = 700
+            }
+
+            def Scope "Group" (
+                kind = "group"
+            )
+            {
+                string ui:group:annotation = "Compute Left/Right Direction"
+                string ui:group:annotationDescription = "Each particle is rendered as a plane, and this plane is perpendicular to ViewDirection.  The left/right direction is parallel to the plane."
+                string[] ui:group:members = ["p:Right_Unnormalized", "p:Right"]
+            }
+
+            def Shader "Dot_1" (
+                references = None
+            )
+            {
+                uniform token info:id = "ND_dot_vector3"
+                float3 inputs:in.connect = </Root/BillboardMaterial/ViewFrame.inputs:viewDirection>
+                float3 outputs:out
+                float2 ui:nodegraph:node:pos = (45.382812, 11.4140625)
+                float2 ui:nodegraph:node:size = (44, 18)
+                int ui:nodegraph:node:stackingOrder = 532
+            }
+
+            def Scope "Group2" (
+                kind = "group"
+            )
+            {
+                string ui:group:annotation = "Compute Up/Down Direction"
+                string ui:group:annotationDescription = "The up/down direction is parallel to the particle's plane and perpendicular to both ViewDirection and the left/right direction."
+                string[] ui:group:members = ["p:Up", "p:Up_Unnormalized"]
+            }
+        }
+
+        def Shader "Image"
+        {
+            uniform token info:id = "ND_image_color3"
+            color3f inputs:default
+            prepend asset inputs:file.connect = </Root/BillboardMaterial.inputs:texture>
+            string inputs:filtertype
+            float2 inputs:texcoord
+            string inputs:uaddressmode
+            string inputs:vaddressmode
+            color3f outputs:out
+            float2 ui:nodegraph:node:pos = (1549.6389, -678.7433)
+            float2 ui:nodegraph:node:size = (148.5, 199)
+            int ui:nodegraph:node:stackingOrder = 5460
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:file"]
+        }
+
+        def Shader "Magnitude"
+        {
+            uniform token info:id = "ND_magnitude_vector2"
+            float2 inputs:in.connect = </Root/BillboardMaterial/ParticleSpacePosition.outputs:Position>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (1417.497, 13.415811)
+            float2 ui:nodegraph:node:size = (152, 40)
+            int ui:nodegraph:node:stackingOrder = 5261
+        }
+
+        def Shader "SmoothStep_1"
+        {
+            uniform token info:id = "ND_smoothstep_float"
+            float inputs:high = 3
+            float inputs:in.connect = </Root/BillboardMaterial/Multiply_3.outputs:out>
+            float inputs:low = 2
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (1163.9985, 238.01328)
+            float2 ui:nodegraph:node:size = (139.5, 145)
+            int ui:nodegraph:node:stackingOrder = 5434
+        }
+
+        def Shader "Mix"
+        {
+            uniform token info:id = "ND_mix_vector3"
+            float3 inputs:bg = (0, 0, 1)
+            float3 inputs:bg.connect = None
+            float3 inputs:fg.connect = </Root/BillboardMaterial/Combine3.outputs:out>
+            float inputs:mix = 0.15
+            float inputs:mix.connect = </Root/BillboardMaterial/SmoothStep_2.outputs:out>
+            float3 outputs:out
+            float2 ui:nodegraph:node:pos = (2163.7705, -235.07655)
+            float2 ui:nodegraph:node:size = (109, 145)
+            int ui:nodegraph:node:stackingOrder = 5115
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:fg", "inputs:fg", "inputs:bg", "inputs:fg", "inputs:mix"]
+        }
+
+        def Shader "Mix_2"
+        {
+            uniform token info:id = "ND_mix_float"
+            float inputs:bg = 3
+            float inputs:fg = 0.5
+            float inputs:mix.connect = </Root/BillboardMaterial/SmoothStep_1.outputs:out>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (1392.2803, 151.47961)
+            float2 ui:nodegraph:node:size = (109, 145)
+            int ui:nodegraph:node:stackingOrder = 5431
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:fg", "inputs:fg", "inputs:fg", "inputs:fg", "inputs:bg", "inputs:bg", "inputs:bg", "inputs:fg"]
+        }
+
+        def Shader "Subtract_1"
+        {
+            uniform token info:id = "ND_subtract_float"
+            float inputs:in1.connect = </Root/BillboardMaterial/Time.outputs:out>
+            float inputs:in2.connect = </Root/BillboardMaterial.inputs:time>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (602.3328, 436.18283)
+            float2 ui:nodegraph:node:size = (61.5, 36)
+            int ui:nodegraph:node:stackingOrder = 3246
+        }
+
+        def Shader "Multiply_3"
+        {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </Root/BillboardMaterial/Subtract_1.outputs:out>
+            float inputs:in2 = 1
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (854.7252, 468.61627)
+            float2 ui:nodegraph:node:size = (60, 36)
+            int ui:nodegraph:node:stackingOrder = 5272
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:in2", "outputs:out"]
+        }
+
+        def Shader "SmoothStep_2"
+        {
+            uniform token info:id = "ND_smoothstep_float"
+            float inputs:high = 4
+            float inputs:in.connect = </Root/BillboardMaterial/Multiply_3.outputs:out>
+            float inputs:low = 2
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (1265.2583, 525.5995)
+            float2 ui:nodegraph:node:size = (143, 145)
+            int ui:nodegraph:node:stackingOrder = 5291
+        }
+
+        def Shader "Multiply_8"
+        {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </Root/BillboardMaterial/SmoothStep.outputs:out>
+            float inputs:in2 = 1
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (2383.7788, 81.88629)
+            float2 ui:nodegraph:node:size = (60, 36)
+            int ui:nodegraph:node:stackingOrder = 4095
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:in1"]
+        }
+
+        def Shader "Add" (
+            references = None
+        )
+        {
+            uniform token info:id = "ND_add_vector3"
+            float3 inputs:in1.connect = </Root/BillboardMaterial/Multiply.outputs:out>
+            float3 inputs:in2.connect = </Root/BillboardMaterial/Multiply_1.outputs:out>
+            float3 outputs:out
+            float2 ui:nodegraph:node:pos = (2375.3484, 955.3678)
+            float2 ui:nodegraph:node:size = (61.5, 36.5)
+            int ui:nodegraph:node:stackingOrder = 5348
+        }
+
+        def Shader "SmoothStep"
+        {
+            uniform token info:id = "ND_smoothstep_float"
+            float inputs:high = 0.49
+            float inputs:high.connect = None
+            float inputs:in.connect = </Root/BillboardMaterial/Magnitude.outputs:out>
+            float inputs:low = 0.49
+            float inputs:low.connect = </Root/BillboardMaterial/Mix_2.outputs:out>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (1763.4398, -58.636993)
+            float2 ui:nodegraph:node:size = (127.5, 145)
+            int ui:nodegraph:node:stackingOrder = 5259
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:low", "inputs:high", "inputs:low", "inputs:in", "inputs:low", "inputs:low", "outputs:out"]
+        }
+
+        def Shader "ViewDirection"
+        {
+            uniform token info:id = "ND_realitykit_viewdirection_vector3"
+            string inputs:space
+            float3 outputs:out
+            float2 ui:nodegraph:node:pos = (1574.1215, 584.7081)
+            int ui:nodegraph:node:stackingOrder = 5406
+        }
+
+        def Shader "Mix_4"
+        {
+            uniform token info:id = "ND_mix_vector3"
+            float3 inputs:bg = (0, 0, 1)
+            float3 inputs:bg.connect = None
+            float3 inputs:fg = (0, 0, 1)
+            float3 inputs:fg.connect = </Root/BillboardMaterial/ViewDirection.outputs:out>
+            float inputs:mix = 0
+            float inputs:mix.connect = </Root/BillboardMaterial/SmoothStep_2.outputs:out>
+            float3 outputs:out
+            float2 ui:nodegraph:node:pos = (1817.2855, 746.1274)
+            float2 ui:nodegraph:node:size = (109, 145)
+            int ui:nodegraph:node:stackingOrder = 5402
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:fg", "inputs:fg", "inputs:bg", "inputs:fg", "inputs:mix"]
+        }
+
+        def Shader "PBRSurface"
+        {
+            uniform token info:id = "ND_realitykit_pbr_surfaceshader"
+            float inputs:ambientOcclusion = 1
+            float inputs:ambientOcclusion.connect = None
+            color3f inputs:baseColor = (1, 1, 1) (
+                colorSpace = "srgb_displayp3"
+            )
+            color3f inputs:baseColor.connect = </Root/BillboardMaterial/Image.outputs:out>
+            float inputs:clearcoat = 0.25
+            float3 inputs:clearcoatNormal.connect = </Root/BillboardMaterial/Mix.outputs:out>
+            float inputs:clearcoatRoughness = 0.125
+            color3f inputs:emissiveColor.connect = </Root/BillboardMaterial/Mix_3.outputs:out>
+            bool inputs:hasPremultipliedAlpha = 1
+            float inputs:metallic = 0
+            float3 inputs:normal.connect = </Root/BillboardMaterial/Mix.outputs:out>
+            float inputs:opacity.connect = </Root/BillboardMaterial/Multiply_8.outputs:out>
+            float inputs:opacityThreshold = 0.2
+            float inputs:roughness = 0.3
+            float inputs:specular = 0.05
+            token outputs:out
+            float2 ui:nodegraph:node:pos = (3002.358, -396.1155)
+            int ui:nodegraph:node:stackingOrder = 5467
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:metallic", "inputs:specular", "inputs:ambientOcclusion", "inputs:clearcoatRoughness", "inputs:opacity", "inputs:ambientOcclusion", "inputs:normal", "inputs:ambientOcclusion"]
+        }
+
+        def Shader "GeometryModifier_1"
+        {
+            uniform token info:id = "ND_realitykit_geometrymodifier_2_0_vertexshader"
+            float3 inputs:bitangent.connect = </Root/BillboardMaterial/ViewFrame.outputs:Right>
+            color4f inputs:color
+            float3 inputs:modelPositionOffset.connect = </Root/BillboardMaterial/Multiply_2.outputs:out>
+            float3 inputs:normal.connect = </Root/BillboardMaterial/Mix_4.outputs:out>
+            float2 inputs:uv0
+            float2 inputs:uv1
+            float4 inputs:uv2
+            float4 inputs:uv3
+            float4 inputs:uv4.connect = None
+            float4 inputs:uv5
+            float4 inputs:uv6
+            float4 inputs:uv7
+            token outputs:out
+            float2 ui:nodegraph:node:pos = (3060.0576, 872.93506)
+            int ui:nodegraph:node:stackingOrder = 5423
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:modelPositionOffset", "inputs:bitangent"]
+        }
+
+        def Shader "Subtract"
+        {
+            uniform token info:id = "ND_subtract_float"
+            float inputs:in1 = 0.25
+            float inputs:in2.connect = </Root/BillboardMaterial/DotProduct.outputs:out>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (671, 849.5)
+            int ui:nodegraph:node:stackingOrder = 4944
+        }
+
+        def Shader "Sqrt"
+        {
+            uniform token info:id = "ND_sqrt_float"
+            float inputs:in.connect = </Root/BillboardMaterial/Clamp.outputs:out>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (996.5, 849.5)
+            int ui:nodegraph:node:stackingOrder = 4944
+        }
+
+        def Shader "Clamp"
+        {
+            uniform token info:id = "ND_clamp_float"
+            float inputs:high.connect = None
+            float inputs:in.connect = </Root/BillboardMaterial/Subtract.outputs:out>
+            float inputs:low
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (819.6384, 721.6268)
+            int ui:nodegraph:node:stackingOrder = 4944
+        }
+
+        def Shader "DotProduct"
+        {
+            uniform token info:id = "ND_dotproduct_vector2"
+            float2 inputs:in1.connect = </Root/BillboardMaterial/ParticleSpacePosition.outputs:Position>
+            float2 inputs:in2.connect = </Root/BillboardMaterial/ParticleSpacePosition.outputs:Position>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (363.75, 849.5)
+            float2 ui:nodegraph:node:size = (153.5, 53)
+            int ui:nodegraph:node:stackingOrder = 4944
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["outputs:out"]
+        }
+
+        def Shader "Combine3"
+        {
+            uniform token info:id = "ND_combine3_vector3"
+            float inputs:in1.connect = </Root/BillboardMaterial/Separate2.outputs:outx>
+            float inputs:in2.connect = </Root/BillboardMaterial/Separate2.outputs:outy>
+            float inputs:in3 = 1
+            float inputs:in3.connect = </Root/BillboardMaterial/Sqrt.outputs:out>
+            float3 outputs:out
+            float2 ui:nodegraph:node:pos = (1198.202, 746.1572)
+            float2 ui:nodegraph:node:size = (145, 54)
+            int ui:nodegraph:node:stackingOrder = 5404
+        }
+
+        def Shader "Time"
+        {
+            uniform token info:id = "ND_time_float"
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (380.28607, 338.9291)
+            float2 ui:nodegraph:node:size = (122.5, 53)
+            int ui:nodegraph:node:stackingOrder = 5414
+        }
+
+        def Shader "Mix_3"
+        {
+            uniform token info:id = "ND_mix_color3"
+            color3f inputs:bg.connect = </Root/BillboardMaterial/Multiply_4.outputs:out>
+            color3f inputs:fg.connect = None
+            prepend float inputs:mix.connect = </Root/BillboardMaterial/SmoothStep_1.outputs:out>
+            color3f outputs:out
+            float2 ui:nodegraph:node:pos = (1805.707, -407.1063)
+            float2 ui:nodegraph:node:size = (109, 145)
+            int ui:nodegraph:node:stackingOrder = 5455
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:fg", "inputs:fg", "inputs:fg", "inputs:fg", "inputs:bg", "inputs:bg", "inputs:bg", "inputs:fg"]
+        }
+
+        def Shader "Multiply_4"
+        {
+            uniform token info:id = "ND_multiply_color3"
+            color3f inputs:in1.connect = </Root/BillboardMaterial/Image.outputs:out>
+            color3f inputs:in2 = (0.3, 0.3, 0.3) (
+                colorSpace = "lin_srgb"
+            )
+            color3f outputs:out
+            float2 ui:nodegraph:node:pos = (1669.4453, -497.61078)
+            int ui:nodegraph:node:stackingOrder = 5462
+        }
+
+        def Shader "Multiply_5"
+        {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </Root/BillboardMaterial.inputs:cellSize>
+            float inputs:in2 = 1.05
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (2298.4526, 416.6788)
+            float2 ui:nodegraph:node:size = (60, 36)
+            int ui:nodegraph:node:stackingOrder = 5475
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["outputs:out"]
+        }
+    }
+
+    def "Plane" (
+        active = true
+        prepend apiSchemas = ["MaterialBindingAPI"]
+        customData = {
+            float3 rotationEulerHint = (-1.5707964, 0, 0)
+        }
+        references = @plane.usdc@
+    )
+    {
+        rel material:binding = </Root/BillboardMaterial> (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+        quatf xformOp:orient = (0.70710677, -0.70710677, 0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+}
+
