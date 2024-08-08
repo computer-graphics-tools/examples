@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct TheSpatialPhotoApp: App {
+struct PhotonsApp: App {
     @State private var appModel = AppModel()
     @State private var viewModel = ViewModel()
 

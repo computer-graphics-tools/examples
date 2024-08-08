@@ -32,7 +32,7 @@ struct ToggleImmersiveSpaceButton: View {
                 }
             }
         } label: {
-            Image(systemName: appModel.immersiveSpaceState == .open ? "photo.fill" : "photo")
+            Image(systemName: appModel.immersiveSpaceState == .open ? "rectangle.portrait.fill" : "rectangle.portrait")
         }
         .disabled(appModel.immersiveSpaceState == .inTransition)
         .animation(.none, value: 0)

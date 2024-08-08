@@ -3,7 +3,7 @@ import SimulationTools
 import MetalTools
 import simd
 
-struct SimulationConstants {
+enum SimulationConstants {
     static let gravity: SIMD3<Float> = [0, -9.8, 0]
     static let particleRadius: Float = 0.025 / 2
     static var cellSize: Float { particleRadius * 2.0 }

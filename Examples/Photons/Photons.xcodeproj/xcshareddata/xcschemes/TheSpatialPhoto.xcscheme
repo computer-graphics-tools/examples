@@ -16,9 +16,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D07E26922C4AD09900A3770F"
-               BuildableName = "TheSpatialPhoto.app"
-               BlueprintName = "TheSpatialPhoto"
-               ReferencedContainer = "container:TheSpatialPhoto.xcodeproj">
+               BuildableName = "Photons.app"
+               BlueprintName = "Photons"
+               ReferencedContainer = "container:Photons.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -46,9 +46,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D07E26922C4AD09900A3770F"
-            BuildableName = "TheSpatialPhoto.app"
-            BlueprintName = "TheSpatialPhoto"
-            ReferencedContainer = "container:TheSpatialPhoto.xcodeproj">
+            BuildableName = "Photons.app"
+            BlueprintName = "Photons"
+            ReferencedContainer = "container:Photons.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -63,9 +63,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D07E26922C4AD09900A3770F"
-            BuildableName = "TheSpatialPhoto.app"
-            BlueprintName = "TheSpatialPhoto"
-            ReferencedContainer = "container:TheSpatialPhoto.xcodeproj">
+            BuildableName = "Photons.app"
+            BlueprintName = "Photons"
+            ReferencedContainer = "container:Photons.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -26,7 +26,7 @@ struct ContentView: View {
                     Spacer()
                         HStack {
                             PhotosPicker(selection: $selectedItem, matching: .images,  photoLibrary: .shared()) {
-                                Image(systemName: "square.and.arrow.down")
+                                Image(systemName: "plus.rectangle")
                             }
                             .onChange(of: selectedItem) { _, _ in
                                 Task {
@@ -36,11 +36,14 @@ struct ContentView: View {
                                     }
                                 }
                             }
+                            .frame(width: 72)
                             ToggleImmersiveSpaceButton()
+                                .frame(width: 72)
                             Toggle(isOn: $viewModel.settings.showWireframe) {
                                 Image(systemName: "squareshape.split.3x3")
                             }
                             .toggleStyle(.button)
+                            .frame(width: 72)
                         }
                     Spacer()
                     }.padding(.horizontal, 128)
