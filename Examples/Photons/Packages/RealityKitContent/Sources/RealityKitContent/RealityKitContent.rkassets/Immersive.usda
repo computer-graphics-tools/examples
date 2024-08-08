@@ -476,8 +476,8 @@ def Xform "Root" (
             float inputs:specular = 0.05
             token outputs:out
             float2 ui:nodegraph:node:pos = (3002.358, -396.1155)
-            int ui:nodegraph:node:stackingOrder = 5467
-            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:metallic", "inputs:specular", "inputs:ambientOcclusion", "inputs:clearcoatRoughness", "inputs:opacity", "inputs:ambientOcclusion", "inputs:normal", "inputs:ambientOcclusion"]
+            int ui:nodegraph:node:stackingOrder = 5476
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:metallic", "inputs:specular", "inputs:ambientOcclusion", "inputs:clearcoatRoughness", "inputs:opacity", "inputs:ambientOcclusion", "inputs:normal", "inputs:ambientOcclusion", "inputs:ambientOcclusion"]
         }
 
         def Shader "GeometryModifier_1"
@@ -569,12 +569,12 @@ def Xform "Root" (
         {
             uniform token info:id = "ND_mix_color3"
             color3f inputs:bg.connect = </Root/BillboardMaterial/Multiply_4.outputs:out>
-            color3f inputs:fg.connect = None
+            color3f inputs:fg.connect = </Root/BillboardMaterial/Multiply_6.outputs:out>
             prepend float inputs:mix.connect = </Root/BillboardMaterial/SmoothStep_1.outputs:out>
             color3f outputs:out
             float2 ui:nodegraph:node:pos = (1805.707, -407.1063)
             float2 ui:nodegraph:node:size = (109, 145)
-            int ui:nodegraph:node:stackingOrder = 5455
+            int ui:nodegraph:node:stackingOrder = 5477
             string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:fg", "inputs:fg", "inputs:fg", "inputs:fg", "inputs:bg", "inputs:bg", "inputs:bg", "inputs:fg"]
         }
 
@@ -587,7 +587,8 @@ def Xform "Root" (
             )
             color3f outputs:out
             float2 ui:nodegraph:node:pos = (1669.4453, -497.61078)
-            int ui:nodegraph:node:stackingOrder = 5462
+            int ui:nodegraph:node:stackingOrder = 5478
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["outputs:out"]
         }
 
         def Shader "Multiply_5"
@@ -599,6 +600,19 @@ def Xform "Root" (
             float2 ui:nodegraph:node:pos = (2298.4526, 416.6788)
             float2 ui:nodegraph:node:size = (60, 36)
             int ui:nodegraph:node:stackingOrder = 5475
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["outputs:out"]
+        }
+
+        def Shader "Multiply_6"
+        {
+            uniform token info:id = "ND_multiply_color3"
+            color3f inputs:in1.connect = </Root/BillboardMaterial/Image.outputs:out>
+            color3f inputs:in2 = (0.15, 0.15, 0.15) (
+                colorSpace = "lin_srgb"
+            )
+            color3f outputs:out
+            float2 ui:nodegraph:node:pos = (1555.8214, -447.86472)
+            int ui:nodegraph:node:stackingOrder = 5482
             string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["outputs:out"]
         }
     }
