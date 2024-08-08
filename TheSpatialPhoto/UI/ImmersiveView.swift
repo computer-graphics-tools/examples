@@ -20,7 +20,6 @@ struct ImmersiveView: View {
 #if !targetEnvironment(simulator)
             _ = await session.run(.init(tracking: [.hand]))
 #endif
-            
             let rootEntity = Entity()
             Task {
                 var particleMaterial = try await ShaderGraphMaterial(named: "/Root/BillboardMaterial", from: "Immersive", in: realityKitContentBundle)

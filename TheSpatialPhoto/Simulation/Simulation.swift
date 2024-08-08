@@ -47,9 +47,9 @@ class Simulation {
         let config = SpatialHashing.Configuration(cellSize: SimulationConstants.cellSize, radius: SimulationConstants.particleRadius)
         sceneCollisionEngine = try SceneCollisionEncoder(device: device)
         spatialHashing = try SpatialHashing(
-            heap: device.heap(size: SpatialHashing.totalBuffersSize(maxElementsCount: positions.count), storageMode: .private),
+            heap: device.heap(size: SpatialHashing.totalBuffersSize(maxPositionsCount: positions.count), storageMode: .private),
             configuration: config,
-            maxElementsCount: positions.count
+            maxPositionsCount: positions.count
         )
     }
     
@@ -102,12 +102,12 @@ class Simulation {
             }
             
             spatialHashing.build(
-                elements: predictedPositions,
+                positions: predictedPositions,
                 in: commandBuffer
             )
             
             spatialHashing.find(
-                externalElements: nil,
+                collidablePositions: nil,
                 collisionCandidates: selfCollisionCandidates,
                 connectedVertices: nil,
                 in: commandBuffer

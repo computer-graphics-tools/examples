@@ -34,6 +34,7 @@
 		D07E26BA2C4AD1CB00A3770F /* SceneMeshAssembler.metal in Sources */ = {isa = PBXBuildFile; fileRef = D07E26B82C4AD1CB00A3770F /* SceneMeshAssembler.metal */; };
 		D07E26BB2C4AD1CB00A3770F /* SceneMeshAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07E26B92C4AD1CB00A3770F /* SceneMeshAssembler.swift */; };
 		D0831D862C4B749C0047DABA /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0831D852C4B74980047DABA /* ViewModel.swift */; };
+		D0C6EFEC2C647FAD0070BA8A /* SimulationTools in Frameworks */ = {isa = PBXBuildFile; productRef = D0C6EFEB2C647FAD0070BA8A /* SimulationTools */; };
 		D0E84AB62C6164BB00A3B7B1 /* SimulationSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E84AB52C6164BB00A3B7B1 /* SimulationSystem.swift */; };
 		D0E84AB82C6164D900A3B7B1 /* ParticlesUpdateSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E84AB72C6164D900A3B7B1 /* ParticlesUpdateSystem.swift */; };
 		D0E84ABA2C6164E200A3B7B1 /* SceneUpdateSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E84AB92C6164E200A3B7B1 /* SceneUpdateSystem.swift */; };
@@ -79,6 +80,7 @@
 				D04687122C62C92800BB6557 /* SimulationTools in Frameworks */,
 				D04687112C62C92800BB6557 /* SimulationTools in Frameworks */,
 				D04687102C62C92800BB6557 /* SimulationTools in Frameworks */,
+				D0C6EFEC2C647FAD0070BA8A /* SimulationTools in Frameworks */,
 				D046870F2C62C92800BB6557 /* SimulationTools in Frameworks */,
 				D046870E2C62C92800BB6557 /* SimulationTools in Frameworks */,
 				D046870D2C62C92800BB6557 /* SimulationTools in Frameworks */,
@@ -230,6 +232,7 @@
 				D07A0D842C54256B00FEA45C /* SimulationTools */,
 				54F137822C5AED8300302974 /* MetalTools */,
 				D05E23422C62C8EF0065F0CF /* SimulationTools */,
+				D0C6EFEB2C647FAD0070BA8A /* SimulationTools */,
 			);
 			productName = TheSpatialPhoto;
 			productReference = D07E26932C4AD09900A3770F /* TheSpatialPhoto.app */;
@@ -261,7 +264,7 @@
 			mainGroup = D07E268A2C4AD09900A3770F;
 			packageReferences = (
 				54F137812C5AED8300302974 /* XCRemoteSwiftPackageReference "metal-tools" */,
-				D05E23412C62C8EF0065F0CF /* XCLocalSwiftPackageReference "../simulation-tools" */,
+				D0C6EFEA2C647FAD0070BA8A /* XCLocalSwiftPackageReference "../simulation-tools" */,
 			);
 			productRefGroup = D07E26942C4AD09900A3770F /* Products */;
 			projectDirPath = "";
@@ -518,7 +521,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		D05E23412C62C8EF0065F0CF /* XCLocalSwiftPackageReference "../simulation-tools" */ = {
+		D0C6EFEA2C647FAD0070BA8A /* XCLocalSwiftPackageReference "../simulation-tools" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "../simulation-tools";
 		};
@@ -574,6 +577,10 @@
 			productName = RealityKitContent;
 		};
 		D0AB7A302C4C9B5F00A02C5A /* SimulationTools */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SimulationTools;
+		};
+		D0C6EFEB2C647FAD0070BA8A /* SimulationTools */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SimulationTools;
 		};

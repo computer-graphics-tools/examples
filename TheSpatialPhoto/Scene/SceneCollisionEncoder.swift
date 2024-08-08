@@ -20,11 +20,11 @@ final class SceneCollisionEncoder {
         let configuration = TriangleSpatialHashing.Configuration(cellSize: cellSize)
         triangleSpatialHashing = try .init(
             heap: device.heap(
-                size: TriangleSpatialHashing.totalBuffersSize(maxElementsCount: collider.trianglesCount, configuration: configuration),
+                size: TriangleSpatialHashing.totalBuffersSize(maxTrianglesCount: collider.trianglesCount, configuration: configuration),
                 storageMode: .private
             ),
             configuration: configuration,
-            maxElementsCount: collider.trianglesCount
+            maxTrianglesCount: collider.trianglesCount
         )
 
         triangles = device.typedBuffer(with: collider.triangles, valueType: .packedUInt3)
@@ -52,15 +52,15 @@ final class SceneCollisionEncoder {
         
         if !initialized {
             triangleSpatialHashing.build(
-                elements: scenePositions,
+                colliderPositions: scenePositions,
                 indices: triangles,
                 in: commandBuffer
             )
         }
         
         triangleSpatialHashing.find(
-            externalElements: positions,
-            elements: scenePositions,
+            collidablePositions: positions,
+            colliderPositions: scenePositions,
             indices: triangles,
             collisionCandidates: collisionCandidates,
             in: commandBuffer
@@ -78,8 +78,8 @@ final class SceneCollisionEncoder {
         guard let triangles = triangles, let scenePositions = scenePositions, let triangleSpatialHashing else { return }
 
         triangleSpatialHashing.reuse(
-            externalElements: positions,
-            elements: scenePositions,
+            collidablePositions: positions,
+            colliderPositions: scenePositions,
             indices: triangles,
             collisionCandidates: collisionCandidates,
             vertexNeighbors: vertexNeighbors,
